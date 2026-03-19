@@ -1,0 +1,142 @@
+﻿<Window x:Class="AlwaysOnDisplay.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AlwaysOnDisplay"
+        mc:Ignorable="d"
+        Title="AlwaysOnDisplay"
+        WindowStyle="None"
+        WindowState="Maximized"
+        ResizeMode="NoResize"
+        Topmost="True"
+        Background="Black">
+
+    <Grid>
+        <Grid HorizontalAlignment="Center"
+              VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="860"/>
+                <ColumnDefinition Width="860"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Левый глаз -->
+            <Grid Grid.Column="0"
+                  Width="860"
+                  Height="620"
+                  ClipToBounds="False">
+
+                <Grid HorizontalAlignment="Right"
+                      VerticalAlignment="Center"
+                      Width="420"
+                      Height="340"
+                      Margin="0,0,0,0"
+                      RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <TranslateTransform x:Name="LeftEyeTranslate" X="0" Y="0"/>
+                            <ScaleTransform x:Name="LeftEyeScale" ScaleX="1" ScaleY="1"/>
+                            <RotateTransform x:Name="LeftEyeRotate" Angle="0"/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+
+                    <!-- Подсветка/тень -->
+                    <Ellipse Width="340"
+                             Height="90"
+                             Fill="#4C73EAEA"
+                             Opacity="0.45"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Bottom"
+                             Margin="0,0,0,-46"
+                             IsHitTestVisible="False">
+                        <Ellipse.Effect>
+                            <BlurEffect Radius="36"/>
+                        </Ellipse.Effect>
+                    </Ellipse>
+
+                    <!-- Дополнительный мягкий слой -->
+                    <Ellipse Width="260"
+                             Height="42"
+                             Fill="#6673EAEA"
+                             Opacity="0.35"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Bottom"
+                             Margin="30,0,0,-22"
+                             IsHitTestVisible="False">
+                        <Ellipse.Effect>
+                            <BlurEffect Radius="18"/>
+                        </Ellipse.Effect>
+                    </Ellipse>
+
+                    <!-- Глаз -->
+                    <Border x:Name="LeftEye"
+                            Width="360"
+                            Height="290"
+                            CornerRadius="82"
+                            Background="#73EAEA"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center" Margin="-20,0,0,0"/>
+                </Grid>
+            </Grid>
+
+            <!-- Правый глаз -->
+            <Grid Grid.Column="1"
+                  Width="860"
+                  Height="620"
+                  ClipToBounds="False">
+
+                <Grid HorizontalAlignment="Left"
+                      VerticalAlignment="Center"
+                      Width="420"
+                      Height="340"
+                      Margin="0,0,0,0"
+                      RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <TranslateTransform x:Name="RightEyeTranslate" X="0" Y="0"/>
+                            <ScaleTransform x:Name="RightEyeScale" ScaleX="1" ScaleY="1"/>
+                            <RotateTransform x:Name="RightEyeRotate" Angle="0"/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+
+                    <!-- Подсветка/тень -->
+                    <Ellipse Width="340"
+                             Height="90"
+                             Fill="#4C73EAEA"
+                             Opacity="0.45"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Bottom"
+                             Margin="80,0,0,-42"
+                             IsHitTestVisible="False">
+                        <Ellipse.Effect>
+                            <BlurEffect Radius="36"/>
+                        </Ellipse.Effect>
+                    </Ellipse>
+
+                    <!-- Дополнительный мягкий слой -->
+                    <Ellipse Width="260"
+                             Height="42"
+                             Fill="#6673EAEA"
+                             Opacity="0.35"
+                             HorizontalAlignment="Left"
+                             VerticalAlignment="Bottom"
+                             Margin="110,0,0,-18"
+                             IsHitTestVisible="False">
+                        <Ellipse.Effect>
+                            <BlurEffect Radius="18"/>
+                        </Ellipse.Effect>
+                    </Ellipse>
+
+                    <!-- Глаз -->
+                    <Border x:Name="RightEye"
+                            Width="360"
+                            Height="290"
+                            CornerRadius="82"
+                            Background="#73EAEA"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top" Margin="60,21,0,0"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
